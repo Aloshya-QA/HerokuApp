@@ -19,7 +19,7 @@ public class TyposTest {
     }
 
     @Test
-    public void toggleCheckboxes() {
+    public void checkParagraphSpelling() {
         driver.get("https://the-internet.herokuapp.com/typos");
 
         String textActual = driver.findElement(By.xpath("//p[2]")).getText();
