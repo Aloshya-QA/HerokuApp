@@ -21,7 +21,7 @@ public class CheckboxesTest {
     }
 
     @Test
-    public void test() {
+    public void toggleCheckboxes() {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
 
         WebElement form = driver.findElement(By.xpath("//form[@id='checkboxes']"));
