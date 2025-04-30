@@ -24,7 +24,8 @@ public class DropdownTest {
     public void toggleCheckboxes() {
         driver.get("https://the-internet.herokuapp.com/dropdown");
 
-        List<WebElement> options = driver.findElements(By.xpath("//select[@id='dropdown']/option"));
+        List<WebElement> options = driver.findElements(
+                By.xpath("//select[@id='dropdown']/option"));
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(options.size(), 3);

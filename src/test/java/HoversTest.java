@@ -31,7 +31,6 @@ public class HoversTest {
                 "#content > div > div"));
         String[] expectedValues = new String[]{"user1", "user2", "user3"};
 
-
         for (int i = 0; i < arrayUsers.size(); i++) {
             actions.moveToElement(arrayUsers.get(i)).perform();
             String text = arrayUsers.get(i).findElement(By.tagName("h5")).getText();

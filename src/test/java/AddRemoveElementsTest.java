@@ -26,11 +26,13 @@ public class AddRemoveElementsTest {
         driver.findElement(By.xpath("//button[text()='Add Element']")).click();
         driver.findElement(By.xpath("//button[text()='Add Element']")).click();
 
-        List<WebElement> buttons = driver.findElements(By.xpath("//button[text()='Delete']"));
+        List<WebElement> buttons = driver.findElements(By.xpath(
+                "//button[text()='Delete']"));
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(buttons.size(), 2);
         buttons.get(1).click();
-        List<WebElement> buttonsAfterDelete = driver.findElements(By.xpath("//button[text()='Delete']"));
+        List<WebElement> buttonsAfterDelete = driver.findElements(By.xpath(
+                "//button[text()='Delete']"));
         softAssert.assertEquals(buttonsAfterDelete.size(), 1);
         softAssert.assertAll();
     }

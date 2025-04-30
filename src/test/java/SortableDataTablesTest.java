@@ -25,7 +25,8 @@ public class SortableDataTablesTest {
     public void checkTableCells() {
         driver.get("https://the-internet.herokuapp.com/tables");
 
-        List<WebElement> rows = driver.findElements(By.xpath("//table[@id='table1']/tbody/tr"));
+        List<WebElement> rows = driver.findElements(
+                By.xpath("//table[@id='table1']/tbody/tr"));
         List<WebElement> cells = new ArrayList<>();
 
         for (WebElement row : rows) {

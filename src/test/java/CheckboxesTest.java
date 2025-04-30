@@ -24,8 +24,10 @@ public class CheckboxesTest {
     public void toggleCheckboxes() {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
 
-        WebElement form = driver.findElement(By.xpath("//form[@id='checkboxes']"));
-        List<WebElement> checkboxes = form.findElements(By.xpath("//input[@type='checkbox']"));
+        WebElement form = driver.findElement(By.xpath(
+                "//form[@id='checkboxes']"));
+        List<WebElement> checkboxes = form.findElements(By.xpath(
+                "//input[@type='checkbox']"));
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(checkboxes.get(0).isSelected(), false);
