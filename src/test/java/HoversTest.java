@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -40,8 +41,9 @@ public class HoversTest {
             WebElement link = arrayUsers.get(i).findElement(By.tagName("a"));
             actions.click(link).perform();
             String errorText = driver.getPageSource();
+            Assert.assertNotNull(errorText);
             softAssert.assertEquals(
-                    errorText.contains("Not Found") || errorText.contains("404"), false);
+                    errorText.contains("Not Found"), false);
             driver.navigate().back();
         }
 

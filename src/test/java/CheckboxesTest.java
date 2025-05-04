@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
-import java.util.List;
 
 public class CheckboxesTest {
     WebDriver driver;
@@ -23,20 +22,21 @@ public class CheckboxesTest {
     @Test
     public void toggleCheckboxes() {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
-
-        WebElement form = driver.findElement(By.xpath(
-                "//form[@id='checkboxes']"));
-        List<WebElement> checkboxes = form.findElements(By.xpath(
-                "//input[@type='checkbox']"));
-
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(checkboxes.get(0).isSelected(), false);
-        checkboxes.get(0).click();
-        softAssert.assertEquals(checkboxes.get(0).isSelected(), true);
 
-        softAssert.assertEquals(checkboxes.get(1).isSelected(), true);
-        checkboxes.get(1).click();
-        softAssert.assertEquals(checkboxes.get(0).isSelected(), false);
+        WebElement inputFirst = driver.findElement(By.xpath(
+                "//form[@id='checkboxes']/input[1]"));
+        WebElement inputSecond = driver.findElement(By.xpath(
+                "//form[@id='checkboxes']/input[2]"));
+
+        softAssert.assertEquals(inputFirst.isSelected(), false);
+        inputFirst.click();
+        softAssert.assertEquals(inputFirst.isSelected(), true);
+
+        softAssert.assertEquals(inputSecond.isSelected(), true);
+        inputSecond.click();
+        softAssert.assertEquals(inputSecond.isSelected(), false);
+        softAssert.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)

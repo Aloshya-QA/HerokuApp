@@ -21,15 +21,15 @@ public class TyposTest {
     @Test
     public void checkParagraphSpelling() {
         driver.get("https://the-internet.herokuapp.com/typos");
-
-        String textActual = driver.findElement(By.xpath("//p[2]")).getText();
-        String textExpected = "Sometimes you'll see a typo, other times you won't.";
-
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(textActual, textExpected);
 
-        driver.navigate().refresh();
-        softAssert.assertEquals(textActual, textExpected);
+        for (int i = 0; i < 10; i++) {
+            String textActual = driver.findElement(By.xpath("//p[2]")).getText();
+            String textExpected = "Sometimes you'll see a typo, other times you won't.";
+            softAssert.assertEquals(textActual, textExpected);
+            driver.navigate().refresh();
+        }
+
         softAssert.assertAll();
     }
 
